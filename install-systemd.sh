@@ -13,6 +13,7 @@ systemctl daemon-reload
 
 message "Enabling Avahi Aliases Service" "header"
 systemctl enable avahi-alias.service
+systemctl restart avahi-alias.service
 
 message "Installation of Avahi-Aliases Done" "success"
 message "Add aliases to /etc/avahi/aliases"
