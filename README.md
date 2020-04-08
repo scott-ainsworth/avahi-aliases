@@ -52,9 +52,9 @@ Usage
     
 Contributions & acknowledgements :
 ----------------------------------
-Original sources from avahi: http://www.avahi.org/wiki/Examples/PythonPublishAlias
-Discussion on stackoverflow: http://stackoverflow.com/questions/775233/how-to-route-all-subdomains-to-a-single-host-using-mdns?answertab=votes#tab-top
-Original github repo: https://github.com/airtonix/avahi-aliases
-Original systemd repo : https://github.com/5sw/avahi-aliases.git
-Service implementation : https://gist.github.com/gnue/ba0e9e6e52eac2d324d73dacefb0b6cf
+1. Original sources from avahi: http://www.avahi.org/wiki/Examples/PythonPublishAlias
+2. Discussion on stackoverflow: http://stackoverflow.com/questions/775233/how-to-route-all-subdomains-to-a-single-host-using-mdns?answertab=votes#tab-top
+3. Original github repo: https://github.com/airtonix/avahi-aliases
+4. Original systemd repo : https://github.com/5sw/avahi-aliases.git
+5. Service implementation : https://gist.github.com/gnue/ba0e9e6e52eac2d324d73dacefb0b6cf
 
