@@ -28,14 +28,16 @@ def publish_cname(cname):
 def encode_dns(name):
     out = []
     for part in name.split('.'):
-        if len(part) == 0: continue
+        if len(part) == 0:
+            continue
         out.append(ToASCII(part))
     return '.'.join(out)
 
 def createRR(name):
     out = []
     for part in name.split('.'):
-        if len(part) == 0: continue
+        if len(part) == 0:
+            continue
         out.append(chr(len(part)))
         out.append(ToASCII(part))
     out.append('\0')
@@ -47,7 +49,7 @@ if __name__ == '__main__':
         name = unicode(each, locale.getpreferredencoding())
         publish_cname(name)
     try:
-        # Just loop forever
-        while 1: time.sleep(60)
+        while 1:
+            time.sleep(60)
     except KeyboardInterrupt:
-        print "Exiting"
+        print("Exiting")

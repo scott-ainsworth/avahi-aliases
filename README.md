@@ -1,60 +1,21 @@
-Avahi Aliases!
-==============
+# avahi-aliases
 
-Do this:
---------
+This is a compilation/cleanup of various Avahi mDNS aliasing scripts to ensure they run on Debian `buster` on the Raspberry Pi as of 2020, so as to make it easier to run several virtual hosts in [`piku`](https://github.com/piku)
 
-### Install and setup
+## Installing
 
-    sudo ./install-systemd.sh
-    #add aliases to /etc/avahi/aliases
-    sudo avahi-publish-aliases
+	make install
 
-### Uninstall
+## Adding aliases
 
-    sudo ./uninstall-systemd.sh
+You can edit `/etc/avahi/aliases` (all aliases in a single line or groups of aliases per line) and restart the service or use the bundled scripts:
 
-### systemd
+	sudo avahi-add-alias foobar.local
 
-Included is an installer for a systemd service. Tested this on Ubuntu 18.x.
-
-    sudo ./install-systemd
-
-
-### Ubuntu 18+, Debian
-Requires python-dbus, python-avahi
-
-
-Usage
------
-
-### Daemon Control:
-
-```
-	sudo service avahi-alias start
-	sudo service avahi-alias restart
-	sudo service avahi-alias stop
-```
-
-### Creating Aliases
-1. `sudo nano /etc/avahi/aliases.d/default`
-2. insert something.local on a new line
-3. save
-4. ???
-5. profit
-
-### Notes:
-	* aliases must end in `.local`
-	* One alias per line
-	* blank lines are ignored
-	* lines prefixed with `#` are ignored
-	* you must manually restart the daemon after modifying alias files
-    
-Contributions & acknowledgements :
-----------------------------------
-1. Original sources from avahi: http://www.avahi.org/wiki/Examples/PythonPublishAlias
-2. Discussion on stackoverflow: http://stackoverflow.com/questions/775233/how-to-route-all-subdomains-to-a-single-host-using-mdns?answertab=votes#tab-top
-3. Original github repo: https://github.com/airtonix/avahi-aliases
-4. Original systemd repo : https://github.com/5sw/avahi-aliases.git
-5. Service implementation : https://gist.github.com/gnue/ba0e9e6e52eac2d324d73dacefb0b6cf
+## Acknowledgements
+1. [Original sources](http://www.avahi.org/wiki/Examples/PythonPublishAlias)
+2. [Discussion on stackoverflow](http://stackoverflow.com/questions/775233/how-to-route-all-subdomains-to-a-single-host-using-mdns?answertab=votes#tab-top)
+3. [Original repo](https://github.com/airtonix/avahi-aliases)
+4. [Original systemd repo](https://github.com/5sw/avahi-aliases.git)
+5. [Service implementation](https://gist.github.com/gnue/ba0e9e6e52eac2d324d73dacefb0b6cf)
 

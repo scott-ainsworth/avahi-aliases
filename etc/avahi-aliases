@@ -11,7 +11,7 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 NAME=avahi-aliases
-DAEMON=/usr/bin/avahi-publish-aliases
+DAEMON=/usr/local/bin/avahi-publish-aliases
 SCRIPTNAME=/etc/init.d/$NAME
 
 case "$1" in

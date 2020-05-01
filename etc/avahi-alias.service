@@ -4,7 +4,7 @@ Wants=avahi-daemon.service
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/avahi-publish-aliases
+ExecStart=/usr/local/bin/avahi-publish-aliases
 
 [Install]
 WantedBy=multi-user.target
