@@ -8,14 +8,14 @@ install-binaries:
 	sudo cp bin/avahi* /usr/local/bin
 
 install-unit:
-	@echo ">>> Installing systemd unit"
+	@echo "\n>>> Installing systemd unit"
 	sudo cp etc/avahi-alias.service /etc/systemd/system/
 	sudo systemctl daemon-reload
-	@echo ">>> Enabling systemd unit"
+	@echo "\n>>> Enabling systemd unit"
 	sudo systemctl enable avahi-alias.service
 	sudo systemctl restart avahi-alias.service
 	sudo systemctl status avahi-alias.service
-	@echo ">>> Install done.\n Add aliases to /etc/avahi/aliases or /etc/avahi/aliases.d/* and use\n    sudo systemctl <start|stop|status> avahi-alias.service\n"
+	@echo "\n>>> Install done.\n Add aliases to /etc/avahi/aliases or /etc/avahi/aliases.d/* and use\n    sudo systemctl <start|stop|status> avahi-alias.service\n"
 
 uninstall-unit:
 	@echo ">>> Uninstallling systemd unit"
