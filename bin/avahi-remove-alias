@@ -12,6 +12,7 @@ alias_dir = glob.glob(alias_dir_glob)
 for alias in args:
     alias_file = open("/etc/avahi/aliases")
     alias_output = []
+
     for line in alias_file:
         line = line.rstrip("\n")
         if line != alias:
