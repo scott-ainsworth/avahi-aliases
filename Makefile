@@ -4,6 +4,7 @@ deps:
 install: deps install-binaries install-unit
 
 install-binaries:
+	touch /etc/avahi/aliases
 	sudo cp bin/avahi* /usr/local/bin
 
 install-unit:
