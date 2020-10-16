@@ -13,6 +13,7 @@ for alias in args:
     alias_file = open("/etc/avahi/aliases")
     alias_output = []
     for line in alias_file:
+        line = line.rstrip("\n")
         if line != alias:
             alias_output.append(line)
 
