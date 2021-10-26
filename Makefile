@@ -1,26 +1,42 @@
 deps:
 	sudo apt install -y python-avahi python-dbus
 
-install: deps install-binaries install-unit
+install: install-binaries install-unit
 
-install-binaries:
+install-binaries: deps
+	@echo ">>> Create /etc/avahi/aliases"
 	sudo touch /etc/avahi/aliases
-	sudo cp bin/avahi* /usr/local/bin
+	@echo ">>> Install executables to /usr/local/bin"
+	sudo cp bin/avahi-* /usr/local/bin
 
 install-unit:
-	@echo "\n>>> Installing systemd unit"
+	@echo ">>> Install systemd unit"
 	sudo cp etc/avahi-alias.service /etc/systemd/system/
+	sudo chmod -x /etc/systemd/system/avahi-alias.service
+	@echo ">>> Enable systemd unit"
 	sudo systemctl daemon-reload
-	@echo "\n>>> Enabling systemd unit"
 	sudo systemctl enable avahi-alias.service
+	@echo ">>> Start systemd unit"
 	sudo systemctl restart avahi-alias.service
 	sudo systemctl status avahi-alias.service
-	@echo "\n>>> Install done.\n Add aliases to /etc/avahi/aliases or /etc/avahi/aliases.d/* and use\n    sudo systemctl <start|stop|status> avahi-alias.service\n"
+	@echo ">>> Install complete."
+	@echo ">>> Add aliases to /etc/avahi/aliases."
+    @echo ">>> Use sudo systemctl <start|stop|status> avahi-alias.service\n"
+
+uninstall: uninstall-unit uninstall-binaries
+
+uninstall-binaries:
+	@echo ">>> Remove executables from /usr/local/bin"
+	sudo rm -f avahi-add-alias
+	sudo rm -f avahi-list-aliases
+	sudo rm -f avahi-publish-aliases
+	sudo rm -f avahi-publish-domain-alias
+	sudo rm -f avahi-uninstall-alias
+	@echo ">>> /etc/avahi/aliases and /etc/avahi/aliases.d have NOT been removed."
 
 uninstall-unit:
-	@echo ">>> Uninstallling systemd unit"
+	@echo ">>> Uninstall systemd unit"
 	sudo systemctl stop avahi-alias.service
 	sudo systemctl disable avahi-alias.service
 	sudo rm /etc/systemd/system/avahi-alias.service
 	sudo systemctl daemon-reload
-	@echo ">>> Uninstall done."
