@@ -1,5 +1,5 @@
 deps:
-	sudo apt install -y python-avahi python-dbus
+	sudo apt install -y python3-avahi python3-dbus
 
 install: install-binaries install-unit
 
