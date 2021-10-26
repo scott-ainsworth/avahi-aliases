@@ -21,7 +21,7 @@ install-unit:
 	sudo systemctl status avahi-alias.service
 	@echo ">>> Install complete."
 	@echo ">>> Add aliases to /etc/avahi/aliases."
-    @echo ">>> Use sudo systemctl <start|stop|status> avahi-alias.service\n"
+	@echo ">>> Use sudo systemctl <start|stop|status> avahi-alias.service\n"
 
 uninstall: uninstall-unit uninstall-binaries
 
