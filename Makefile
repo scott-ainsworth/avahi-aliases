@@ -18,7 +18,7 @@ install-unit:
 	sudo systemctl enable avahi-alias.service
 	@echo ">>> Start systemd unit"
 	sudo systemctl restart avahi-alias.service
-	sudo systemctl status avahi-alias.service
+	sudo systemctl --no-pager status avahi-alias.service
 	@echo ">>> Install complete."
 	@echo ">>> Add aliases to /etc/avahi/aliases."
 	@echo ">>> Use sudo systemctl <start|stop|status> avahi-alias.service\n"
